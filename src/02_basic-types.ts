@@ -102,6 +102,14 @@ console.log(profile); //→[ 'Tom', 20 ]
 //------------------------
 // any型
 //------------------------
+let anyVariable: any = 0;
+console.log(anyVariable); //→0
+
+anyVariable = "Tom";
+console.log(anyVariable); //→Tom
+
+anyVariable = false;
+console.log(anyVariable); //→false
 
 //------------------------
 // unknown型
@@ -110,19 +118,39 @@ console.log(profile); //→[ 'Tom', 20 ]
 //------------------------
 // void型
 //------------------------
-
+function logger(message: string): void {
+  console.log(message); //→Hello World!
+}
+logger("Hello World!");
 //------------------------
 // null/undefine型
 //------------------------
+let u: undefined = undefined;
+let n: null = null;
+
+console.log(u); //→undefined
+console.log(n); //→null
 
 //------------------------
 // never型
 //------------------------
-
+// function error(message: string): never {
+//   throw new Error(message);
+// }
+// error("Error!");
 //------------------------
 // object型
 //------------------------
+let profile1: object = { name: "Tom" };
+profile1 = { age: 20 };
 
+// let profile2: {} = { name: "Tom" };
+// profile2 = { age: 20 };
+
+let profile2: { name: string } = { name: "Tom" };
+profile2 = { name: "Mike" }; //→OK
+// profile2 = { age: 20 };  //→NG
+// Type '{ age: number; }' is not assignable to type '{ name: string; }'.
 //------------------------
 // intersection型（交差型）
 //------------------------
