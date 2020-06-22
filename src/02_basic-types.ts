@@ -112,10 +112,6 @@ anyVariable = false;
 console.log(anyVariable); //→false
 
 //------------------------
-// unknown型
-//------------------------
-
-//------------------------
 // void型
 //------------------------
 function logger(message: string): void {
@@ -150,23 +146,130 @@ profile1 = { age: 20 };
 let profile2: { name: string } = { name: "Tom" };
 profile2 = { name: "Mike" }; //→OK
 // profile2 = { age: 20 };  //→NG
-// Type '{ age: number; }' is not assignable to type '{ name: string; }'.
+// オブジェクト リテラルは既知のプロパティのみ指定できます。'age' は型 '{ name: string; }' に存在しません。
+
+//------------------------
+// 型エイリアスとinterface
+//------------------------
+type Age = number;
+let age: Age = 20;
+
+type Profile = {
+  name: string;
+  age: number;
+};
+let profile3: Profile = {
+  name: "Tom",
+  age: 20,
+};
+console.log(profile3);
+
+interface Profile2 {
+  name: string;
+  age: number;
+}
+
+let profile4: Profile2 = {
+  name: "Mike",
+  age: 20,
+};
+console.log(profile4);
+
+//------------------------
+// unknown型
+//------------------------
+const getAge = (): number => 25;
+let ageAny: any = getAge();
+let ageUnknown: unknown = getAge();
+console.log(ageAny + 10); //→OK
+// console.log(ageUnknown + 10); //→NG
+// オブジェクト型は 'unknown' です。
+
+if (typeof ageUnknown === "number") {
+  console.log(ageUnknown + 10); //→OK
+}
+
 //------------------------
 // intersection型（交差型）
 //------------------------
+type Profile3 = {
+  name: string;
+  age: number;
+};
+type Profile4 = {
+  height: number;
+  weight: number;
+};
+
+type Profile5 = Profile3 & Profile4;
+
+const profile5: Profile5 = {
+  name: "Tom",
+  age: 20,
+  height: 1.7,
+  weight: 60,
+};
+console.log(profile5);
 
 //------------------------
 // union型（共用体型）
 //------------------------
+let value1: number = 1; //→OK
+// value1 = "Tom"; //→NG
 
+let value2: number | string = 1; //→OK
+value2 = "Tom"; //→OK
 //------------------------
 // literal型
 //------------------------
 
-//------------------------
-// Union型（共用体型）
-//------------------------
+let myName: "Tom";
+myName = "Tom"; //→OK
+//myName = "Mike"; //→NG
+// 型 '"Mike"' を型 '"Tom"' に割り当てることはできません。
+
+let zero: 0;
+zero = 0;
+// zero = 1; //→NG
+// 型 '1' を型 '0' に割り当てることはできません。
+
+let isTruth: true;
+isTruth = true;
+// isTruth = false;  //→NG
+// 型 'false' を型 'true' に割り当てることはできません。
 
 //------------------------
 // enum型（列挙型）
 //------------------------
+enum Day1 {
+  Sun,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat,
+}
+console.log(Day1.Sun);
+
+enum Day2 {
+  Sun = 1,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat,
+}
+console.log(Day2.Sun);
+
+enum Day3 {
+  Sun = "日曜日",
+  Mon = "月曜日",
+  Tue = "火曜日",
+  Wed = "水曜日",
+  Thu = "木曜日",
+  Fri = "金曜日",
+  Sat = "土曜日",
+}
+console.log(Day3.Sun);
