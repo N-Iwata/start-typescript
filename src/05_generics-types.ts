@@ -25,9 +25,9 @@ console.log(echoBoolean(false));
 const echo = <T>(prm: T): T => {
   return prm;
 };
-// console.log(echo<string>("Hello"));
-// console.log(echo<number>(32));
-// console.log(echo<boolean>(false));
+console.log(echo<string>("Hello"));
+console.log(echo<number>(32));
+console.log(echo<boolean>(false));
 
 // 初期ジェネリクス
 const echo2 = <T = string>(prm: T): T => {
