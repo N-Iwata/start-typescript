@@ -7,27 +7,27 @@ export {}; // モジュール化をすることで、変数のダブりを回避
 //------------------------
 // let
 //------------------------
-// let a = 0; //let a: number
-// let b = "Taro"; //let b: string
-// let c = false; //let c: boolean
-// let d; //let d: boolean
-// let e = a + 5; //let e: number
-// let f = a + "5"; //let f: string
-// let g = b + 5; //let g: string
-// let h = b + "5"; //let h: string
+let a = 0; //let a: number
+let b = "Taro"; //let b: string
+let c = false; //let c: boolean
+let d; //let d: boolean
+let e = a + 5; //let e: number
+let f = a + "5"; //let f: string
+let g = b + 5; //let g: string
+let h = b + "5"; //let h: string
 // let i = c + 5; //NG
-// let j = c + "5"; //let j: string
+let j = c + "5"; //let j: string
 
-// console.log(a);
-// console.log(b);
-// console.log(c);
-// console.log(d);
-// console.log(e);
-// console.log(f);
-// console.log(g);
-// console.log(h);
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+console.log(f);
+console.log(g);
+console.log(h);
 // console.log(i);
-// console.log(j);
+console.log(j);
 
 //------------------------
 // const
@@ -130,40 +130,41 @@ export {}; // モジュール化をすることで、変数のダブりを回避
 //------------------------
 // 関数の戻り値
 //------------------------
-//function a(num: number): number
-function a(num: number) {
-  return num;
-}
-//function b(age: number): string
-function b(age: number) {
-  return `私は${age}歳です。`;
-}
-//function c(message: string): void
-function c(message: string) {
-  console.log(`Hello ${message}`);
-}
-//function d(num: number): "Taro" | "Jiro"
-function d(num: number) {
-  if (num > 0) {
-    return "Taro";
-  } else {
-    return "Jiro";
-  }
-}
-//function e(num: number): "Taro" | undefined
-//noImplicitReturns=Trueにするとエラー
-function e(num: number) {
-  if (num > 0) {
-    return "Taro";
-  }
-}
+// //function a(num: number): number
+// function a(num: number) {
+//   return num;
+// }
+// //function b(age: number): string
+// function b(age: number) {
+//   return `私は${age}歳です。`;
+// }
+// //function c(message: string): void
+// function c(message: string) {
+//   console.log(`Hello ${message}`);
+// }
+// //function d(num: number): "Taro" | "Jiro"
+// function d(num: number) {
+//   if (num > 0) {
+//     return "Taro";
+//   } else {
+//     return "Jiro";
+//   }
+// }
+// //function e(num: number): "Taro" | undefined
+// //noImplicitReturns=Trueにするとエラー
+// function e(num: number) {
+//   if (num > 0) {
+//     return "Taro";
+//   }
+// }
 //------------------------
 // 関数の引数
 //------------------------
 //function a(num: any): "Taro" | undefined
+//noImplicitAny=Trueにするとエラー
 // function a(num) {
 //   if (num > 0) {
 //     return "Taro";
 //   }
 // }
-// a(0);
+// console.log(a(0));
