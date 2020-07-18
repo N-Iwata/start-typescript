@@ -10,7 +10,7 @@ export {}; // モジュール化をすることで、変数のダブりを回避
 let a = 0; //let a: number
 let b = "Taro"; //let b: string
 let c = false; //let c: boolean
-let d; //let d: boolean
+let d; //let d: any
 let e = a + 5; //let e: number
 let f = a + "5"; //let f: string
 let g = b + 5; //let g: string
